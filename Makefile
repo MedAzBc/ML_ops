@@ -38,13 +38,13 @@ prepare:
 train:
 	$(PYTHON) main.py --mode train --train_data $(TRAIN_DATA) --test_data $(TEST_DATA) --save $(MODEL_FILE)
 	python send_email.py "Training Complete" "Your training has completed successfully."
-	python send_notification.py "Training Complete" "Your training has completed successfully."
+	#python send_notification.py "Training Complete" "Your training has completed successfully."
 
 # Évaluation du modèle
 evaluate:
 	$(PYTHON) main.py --mode evaluate --train_data $(TRAIN_DATA) --test_data $(TEST_DATA) --load $(MODEL_FILE)
 	python send_email.py "evaluation Complete" "Your evaluation has completed successfully."
-	python send_notification.py "Evaluation Complete" "Your evaluation has completed successfully."
+	#python send_notification.py "Evaluation Complete" "Your evaluation has completed successfully."
 # Chargement du modèle
 load:
 	$(PYTHON) main.py --mode load --load $(MODEL_FILE)
