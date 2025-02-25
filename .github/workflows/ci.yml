@@ -26,10 +26,14 @@ jobs:
           pip install --upgrade pip
           make install
 
-     
+      - name: mlflow
+        run: make mlflow-ui
+        
       - name: Train the model
         run: make train
 
       - name: Evaluate the model
         run: make evaluate
+        
+
 
